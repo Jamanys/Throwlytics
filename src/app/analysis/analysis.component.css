@@ -1,0 +1,158 @@
+/* -----------------------
+   analysis-card
+----------------------- */
+.analysis-card {
+  max-width: 650px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fafafa;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.analysis-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.analysis-card .card-header mat-icon {
+  font-size: 32px;
+  color: #3f51b5;
+}
+
+.analysis-card .card-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.analysis-card .card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.analysis-card .card-actions button {
+  flex: 1 1 auto;
+  min-width: 140px;
+}
+
+.analysis-card .lines-info {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 4px;
+}
+
+
+/* -----------------------
+  Card des filtres
+----------------------- */
+.filters {
+  max-width: 600px;            /* largeur maximale */
+  margin: 20px auto;            /* centré horizontalement */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;                    /* espace entre filtres */
+  padding: 16px;
+  background-color: #fafafa;    /* légèrement gris clair */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 12px;
+}
+
+/* -----------------------
+   Card statistiques
+----------------------- */
+.statistics-card {
+  max-width: 650px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.statistics-card p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+/* -----------------------
+   Croix des boutons
+----------------------- */
+.button-cross {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;        /* espace vertical entre les lignes */
+  margin-top: 10px;
+}
+
+.button-cross .row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;        /* espace horizontal entre les chips */
+  flex-wrap: wrap;   /* permet de rester responsive sur petit écran */
+}
+
+.button-cross .middle {
+  justify-content: center;
+  gap: 12px;
+}
+
+/* -----------------------
+   Chips des boutons
+----------------------- */
+.button-cross .mat-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 24px;
+  font-weight: 600;
+  color: #fff;
+  min-width: 90px;
+  text-align: center;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: default;
+}
+
+/* Hover pour effet subtil */
+.button-cross .mat-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Chip Parfait légèrement différente */
+.button-cross .mat-chip[ngStyle*="Parfait"] {
+  font-weight: 700;
+  color: #fff;
+}
+
+/* -----------------------
+   Responsive mobile
+----------------------- */
+@media (max-width: 480px) {
+  .button-cross .mat-chip {
+    min-width: 70px;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .statistics-card {
+    padding: 16px;
+  }
+
+  .statistics-card p {
+    font-size: 1rem;
+  }
+}

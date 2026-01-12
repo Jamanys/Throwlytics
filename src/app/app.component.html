@@ -1,0 +1,91 @@
+<mat-tab-group>
+  <mat-tab label="Saisie">
+    <mat-card class="main-card">
+      <mat-card-title>🏉 Grille d'évaluation</mat-card-title>
+      <mat-card-subtitle>
+        Tour {{ currentTour + 1 }} / {{ tours.length }} —
+        Étape {{ currentStep + 1 }} / {{ tours[currentTour].length }}
+      </mat-card-subtitle>
+
+      <mat-divider></mat-divider>
+
+      <!-- Infos -->
+      <div class="form-grid">
+        <mat-form-field appearance="outline">
+          <mat-label>Examinateur</mat-label>
+          <input matInput [(ngModel)]="examinerName">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Examiné</mat-label>
+          <input matInput [(ngModel)]="examineeName">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Météo</mat-label>
+          <mat-select [(ngModel)]="meteovalue">
+            <mat-option *ngFor="let m of meteoOptions" [value]="m">
+              {{ m }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Vent</mat-label>
+          <mat-select [(ngModel)]="ventvalue">
+            <mat-option *ngFor="let v of ventOptions" [value]="v">
+              {{ v }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <!-- Action attendue -->
+      <p class="next-action">
+        👉 Lancer attendu : <strong>{{ tours[currentTour][currentStep] }}</strong>
+      </p>
+
+      <!-- Controller -->
+      <div class="controller">
+        <button mat-fab  class="haut" (click)="onClick('Haut')">
+          <mat-icon>north</mat-icon>
+        </button>
+
+        <button mat-fab class="gauche" (click)="onClick('Gauche')">
+          <mat-icon>west</mat-icon>
+        </button>
+
+        <button mat-fab class="parfait gold-btn" (click)="onClick('Parfait')">
+          <mat-icon>star</mat-icon>
+        </button>
+
+        <button mat-fab class="droite" (click)="onClick('Droite')">
+          <mat-icon>east</mat-icon>
+        </button>
+
+        <button mat-fab class="bas" (click)="onClick('Bas')">
+          <mat-icon>south</mat-icon>
+        </button>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button mat-raised-button color="accent" (click)="exportToCSV()">
+          📥 Export CSV
+        </button>
+
+        <button mat-stroked-button color="warn" (click)="reset()">
+          🔄 Reset
+        </button>
+      </div>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Analyse">
+    <app-analysis></app-analysis>
+  </mat-tab>
+</mat-tab-group>

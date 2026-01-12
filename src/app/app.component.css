@@ -1,0 +1,102 @@
+/* carte principale */
+.main-card {
+  max-width: 520px;
+  margin: 16px auto;
+  padding: 16px;
+  background-color: var(--sp-white);
+  border-top: 6px solid var(--sp-green);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* fomulaire */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* text info */
+.next-action {
+  text-align: center;
+  font-size: 1.15rem;
+  margin: 18px 0;
+  color: var(--sp-green);
+  font-weight: 600;
+}
+
+/* Controller */
+.controller {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 28px auto;
+}
+
+.controller button {
+  position: absolute;
+  background-color: var(--sp-green) !important;
+  color: var(--sp-white) !important;
+}
+
+.haut {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bas {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gauche {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.droite {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Bouton Parfait */
+.parfait.gold-btn {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.15);
+  background: linear-gradient(135deg, var(--sp-gold), #ffdf70) !important;
+  color: var(--sp-black) !important;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.6);
+}
+
+.gold-btn:hover {
+  background: linear-gradient(135deg, #ffeb99, var(--sp-gold)) !important;
+}
+
+/* Icônes */
+mat-icon {
+  color: var(--sp-white);
+}
+
+.gold-btn mat-icon {
+  color: var(--sp-black);
+}
+
+/* Actions bas de page */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+

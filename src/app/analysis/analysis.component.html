@@ -1,0 +1,112 @@
+<mat-card class="analysis-card">
+  <!-- Header -->
+  <div class="card-header">
+    <h2>📊 Analyse des tests</h2>
+  </div>
+
+  <!-- Actions -->
+  <div class="card-actions">
+    <button mat-raised-button color="primary" (click)="fileInput.click()">
+      Charger les fichiers CSV
+    </button>
+    <input
+      #fileInput
+      type="file"
+      multiple
+      accept=".csv"
+      (change)="onFilesSelected($event)"
+      style="display:none"
+    />
+    <button mat-raised-button color="accent" (click)="resetFilters()">
+      Exporter les données filtrées
+    </button>
+  </div>
+  <!-- Info lignes chargées -->
+  <p class="lines-info" *ngIf="allEntries.length">
+    ✅ {{ allEntries.length }} ligne{{ allEntries.length > 1 ? 's' : '' }} chargée{{ allEntries.length > 1 ? 's' : '' }}
+  </p>
+</mat-card>
+
+<mat-card class="filters">
+  <mat-form-field>
+    <mat-label>Examinateur</mat-label>
+    <mat-select [(ngModel)]="filters.examiner" (selectionChange)="applyFilters()">
+      <mat-option value="">Tous</mat-option>
+      <mat-option *ngFor="let m of uniqueExaminers" [value]="m">{{ m }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Examiné</mat-label>
+    <mat-select [(ngModel)]="filters.examinee" (selectionChange)="applyFilters()">
+      <mat-option value="">Tous</mat-option>
+      <mat-option *ngFor="let m of uniqueExaminees" [value]="m">{{ m }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Météo</mat-label>
+    <mat-select [(ngModel)]="filters.meteo" (selectionChange)="applyFilters()">
+      <mat-option value="">Tous</mat-option>
+      <mat-option *ngFor="let m of uniqueMeteo" [value]="m">{{ m }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Filtre Vent -->
+  <mat-form-field>
+    <mat-label>Vent</mat-label>
+    <mat-select [(ngModel)]="filters.vent" (selectionChange)="applyFilters()">
+      <mat-option value="">Tous</mat-option>
+      <mat-option *ngFor="let v of uniqueVent" [value]="v">{{ v }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Filtre Exercices (multiple select) -->
+  <mat-form-field>
+    <mat-label>Exercices</mat-label>
+    <mat-select
+      multiple
+      [(ngModel)]="filters.exercises"
+      (selectionChange)="applyFilters()"
+    >
+      <mat-option *ngFor="let ex of uniqueExercises" [value]="ex">{{ ex }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</mat-card>
+
+
+<mat-card class="statistics-card">
+  <p>📊 Répartition des boutons :</p>
+  <div class="button-cross">
+    <!-- Ligne Haut -->
+    <div class="row top">
+      <span class="mat-chip" [ngStyle]="{'background-color': getButtonColor('Haut')}">
+        Haut: {{ buttonRates['Haut'] }}%
+      </span>
+    </div>
+
+    <!-- Ligne Milieu : Gauche, Parfait, Droite -->
+    <div class="row middle">
+      <span class="mat-chip" [ngStyle]="{'background-color': getButtonColor('Gauche')}">
+        Gauche: {{ buttonRates['Gauche'] }}%
+      </span>
+      <span class="mat-chip" [ngStyle]="{'background-color': getButtonColor('Parfait'), 'color':'#fff', 'font-weight':'bold'}">
+        Parfait: {{ buttonRates['Parfait'] }}%
+      </span>
+      <span class="mat-chip" [ngStyle]="{'background-color': getButtonColor('Droite')}">
+        Droite: {{ buttonRates['Droite'] }}%
+      </span>
+    </div>
+
+    <!-- Ligne Bas -->
+    <div class="row bottom">
+      <span class="mat-chip" [ngStyle]="{'background-color': getButtonColor('Bas')}">
+        Bas: {{ buttonRates['Bas'] }}%
+      </span>
+    </div>
+  </div>
+</mat-card>
+
+
+
