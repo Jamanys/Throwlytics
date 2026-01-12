@@ -44,8 +44,8 @@ export class AppComponent {
   entries: Entry[] = [];
   examinerName: string = '';
   examineeName: string = '';
-  meteoOptions: string[] = ['Soleil', 'Nuage', 'Pluie', 'Neige'];
-  ventOptions: string[] = ['Nul','Dos', 'Face', 'Droite', 'Gauche'];
+  meteoOptions: string[] = ['Sec','Humide','Mouillé'];
+  ventOptions: string[] = ['Nul', 'Face','Face/Droite','Droite','Dos/Droite','Dos','Dos/Gauche','Gauche','Face/Gauche'];
   meteovalue: string = this.meteoOptions[0];
   ventvalue: string = this.ventOptions[0];
   tours = [

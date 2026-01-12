@@ -45,7 +45,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label>Météo</mat-label>
+    <mat-label>Ballon</mat-label>
     <mat-select [(ngModel)]="filters.meteo" (selectionChange)="applyFilters()">
       <mat-option value="">Tous</mat-option>
       <mat-option *ngFor="let m of uniqueMeteo" [value]="m">{{ m }}</mat-option>
