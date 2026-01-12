@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MonProjetAngular
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.7.
@@ -57,3 +58,7 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# Throwlytics
+website to create csv with data about training session of hookers. Focus on the accuracy of the throws.
+>>>>>>> 7f49a872cb556d9801f9035d17f113fc2328ac42
